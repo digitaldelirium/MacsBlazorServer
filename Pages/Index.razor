@@ -1,0 +1,41 @@
+﻿@using MacsWebAssembly.Components
+@page "/"
+
+<PageTitle>Mac's Camping Area</PageTitle>
+
+<Div>
+    <h2>Welcome to Mac's!</h2>
+</Div>
+
+<Div>
+    <Jumbotron>
+        <CarouselHelper imgPath="images/titleslide" />
+    </Jumbotron>
+</Div>
+<Div class="row">
+    <Column ColumnSize="ColumnSize.Is4.OnTablet.Is12.OnMobile">
+        <h3>Family Owned</h3>
+        Mac's Camping Area was founded in 1970 and has been in the McDonald family for over 50 years now.  We pride ourselves in being small enough
+        to focus on customer service and events tailored to our campers' wants and needs.  Mac's is lucky to have customers who have been camping here
+        for multiple generations and continue to return year after year.
+    </Column>
+    <Column ColumnSize="ColumnSize.Is4.OnTablet.Is12.OnMobile">
+        <h3>Location</h3>
+        Located on beautiful Tripp Lake, Mac's Camping Area offers an affordable campground with fun for everyone! Whether it is exciting activities,
+        swimming in the lake, fishing on the docks, or just simply relaxing, Mac's has something to offer everyone at any age!
+        <br/>
+        <Button id="amenitiesButton" To="amenities" Type="ButtonType.Link">See Amenities <Icon Name="IconName.UmbrellaBeach"/></Button>
+    </Column>
+    <Column ColumnSize="ColumnSize.Is4.OnTablet.Is12.OnMobile">
+    <h3>Activities</h3>
+    A variety of activities are scheduled most weekends with fun for all ages, kids and adults alike! Get involved in the planning process or simply attend!
+    <br />
+    We know how to have fun!
+    <br />
+    <Button Type="ButtonType.Link" To="activities">See Activities <Icon Name="IconName.CalendarTimes" /></Button>
+    </Column>
+</Div>
+
+@code {
+
+}

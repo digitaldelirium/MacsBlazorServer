@@ -1,0 +1,45 @@
+@using Blazorise
+@using System.Collections
+
+<Carousel @bind-SelectedSlide="@selectedSlide">
+    @if (imagePath != null) {
+        @foreach (var img in GetImagesForCarousel(imagePath)){
+            <CarouselSlide Name=@(Convert.ToString(iterator))>
+                <Image Source="@img" Text="Dynamic list of Mac's Camping Area Photos" Display="Display.Block" Width="Width.Is100" />
+            </CarouselSlide>
+            @(iterator++)
+        }
+    } else {
+        <CarouselSlide Name="PlaceHolder">
+            <Image Source="https://via.placeholder.com/500text=PlaceHolder+Image" Display="Display.Block" Width="Width.Is100" />
+        </CarouselSlide>
+    }
+</Carousel>
+
+@code{
+    public string? imagePath {get; set;}
+
+    private string selectedSlide = "0";
+    private int iterator = 0;
+
+    public CarouselHelper() {
+        imagePath = null;
+    }
+    public CarouselHelper(string imgPath) {
+        imagePath = imgPath;
+        GetImagesForCarousel(imagePath);
+    }
+
+    private string[] GetImagesForCarousel(string? imagePath) {
+        if (imagePath == null)
+            throw new NullReferenceException("A valid path must be passed to render the carousel!");
+
+        var dirInfo = new DirectoryInfo(imagePath);
+        var fileList = dirInfo.EnumerateFiles();
+        var imageList = new ArrayList();
+        foreach (var file in fileList){
+            imageList.Add(String.Concat(imagePath, file.Name) );
+        }
+        return (string[])imageList.ToArray();
+    }
+}

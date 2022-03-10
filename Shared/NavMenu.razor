@@ -1,0 +1,45 @@
+﻿
+    <Bar Breakpoint="Breakpoint.Desktop" 
+         Background="Background.Dark" 
+         ThemeContrast="ThemeContrast.Dark">
+        <BarBrand>
+            <BarLink To="#home" >Mac's Camping Area</BarLink>
+        </BarBrand>
+        <BarToggler/> 
+        <BarMenu>
+            <BarStart>
+                <BarItem>
+                    <BarLink To="campmap"><Icon Name="IconName.Map" />Camp Map</BarLink>
+                </BarItem>
+                <BarItem>
+                    <BarLink To="contact"><Icon Name="IconName.Mail" />Contact Us</BarLink>
+                </BarItem>
+                <BarItem>
+                    <BarLink To="activities"><Icon Name="IconName.CalendarTimes" />Activities</BarLink>
+                </BarItem>
+                <BarItem>
+                    <BarLink To="amenities"><Icon Name="IconName.PlusCircle" />Amenities</BarLink>
+                </BarItem>
+                <BarItem>
+                    <BarLink To="rates"><Icon Name="IconName.DollarSign" />Rates</BarLink>
+                </BarItem>
+                <BarItem>
+                    <BarLink To="rentals"><Icon Name="IconName.CalendarDay" />RV Rentals</BarLink>
+                </BarItem>
+                <BarItem>
+                    <BarLink><Icon Name="IconName.Images" />Flickr Libary</BarLink>
+                </BarItem>
+            </BarStart>
+            
+        </BarMenu>
+    </Bar>
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
